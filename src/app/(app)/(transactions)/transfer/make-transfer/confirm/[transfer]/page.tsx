@@ -1,4 +1,6 @@
+import { ConfirmByHandshake } from "@/components/shared/confirm-by-handshake";
 import { ChevronLeft } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Page() {
@@ -18,9 +20,11 @@ export default async function Page() {
 					</section>
 
 					<section className={"flex gap-3 items-center justify-center"}>
-						<div className={"w-18 h-18 rounded-full bg-gray-200"}></div>
+						<div className={"w-18 h-18 rounded-full bg-gray-200 overflow-hidden"}>
+							<Image src="/3.jpeg" alt="Image" width={72} height={72} />
+						</div>
 						<div>
-							<p className={"font-semibold"}>Muhammad</p>
+							<p className={"font-semibold"}>Edward D Vandenberg</p>
 							<p className={"text-sm"}>+1-300-555-0161</p>
 						</div>
 					</section>
@@ -43,9 +47,7 @@ export default async function Page() {
 						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
 							Confirm by Noseprint
 						</Link>
-						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
-							Confirm by Handshake
-						</Link>
+						<ConfirmByHandshake />
 						<Link className={"w-full flex items-center justify-center bg-indigo-100 text-sm font-semibold text-indigo-700 py-3 px-6 leading-normal rounded-md"} href={"/transfer"}>
 							Cancel
 						</Link>

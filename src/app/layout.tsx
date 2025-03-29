@@ -2,6 +2,7 @@ import * as React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { Sora } from "next/font/google";
+import ReactQueryProvider from "@/components/react-query-provider";
 
 const fontSans = Sora({
 	subsets: ["latin"],
@@ -17,7 +18,9 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
 	return (
 		<html className={`${fontSans.variable}`} lang="en">
 			<body className={"max-w-md mx-auto antialiased"}>
-				{children}
+				<ReactQueryProvider>
+					{children}
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);

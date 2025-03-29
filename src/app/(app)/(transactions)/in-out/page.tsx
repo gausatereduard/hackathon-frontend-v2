@@ -1,5 +1,6 @@
 import { SearchIcon, FilterIcon } from "lucide-react";
 import { Transaction } from "@/components/shared/transaction-item";
+import { BottomNavigation } from "@/components/shared/bottom-navigation";
 
 export default async function Page() {
 	return (
@@ -41,8 +42,6 @@ export default async function Page() {
 								merchant="Walmart"
 								date="Today, 13:32"
 								amount="$35.53"
-								iconBgColor="bg-blue-100"
-								iconPath="/walmart-icon.png"
 							/>
 
 							<Transaction
@@ -51,8 +50,6 @@ export default async function Page() {
 								date="Yesterday, 03:10"
 								amount="$40.00"
 								isIncoming={true}
-								iconBgColor="bg-indigo-100"
-								iconPath="/topup-icon.png"
 							/>
 
 							<Transaction
@@ -60,8 +57,6 @@ export default async function Page() {
 								merchant="Netflix"
 								date="Dec 26, 13:30"
 								amount="$12.00"
-								iconBgColor="bg-red-100"
-								iconPath="/netflix-icon.png"
 							/>
 						</div>
 					</div>
@@ -76,8 +71,6 @@ export default async function Page() {
 								merchant="Amazon"
 								date="Today, 10:30"
 								amount="$12.23"
-								iconBgColor="bg-orange-100"
-								iconPath="/amazon-icon.png"
 							/>
 
 							<Transaction
@@ -85,8 +78,6 @@ export default async function Page() {
 								merchant="Nike"
 								date="Yesterday, 03:12"
 								amount="$50.23"
-								iconBgColor="bg-gray-900"
-								iconPath="/nike-icon.png"
 							/>
 
 							<Transaction
@@ -94,8 +85,6 @@ export default async function Page() {
 								merchant="The Home Depot"
 								date="Dec 26, 13:53"
 								amount="$129.00"
-								iconBgColor="bg-orange-500"
-								iconPath="/homedepot-icon.png"
 							/>
 						</div>
 					</div>
@@ -111,13 +100,13 @@ export default async function Page() {
 								merchant="Amazon"
 								date="Friday, 12:42"
 								amount="$35.53"
-								iconBgColor="bg-orange-100"
-								iconPath="/amazon-icon.png"
 							/>
 						</div>
 					</div>
 				</section>
 			</main>
+
+			<BottomNavigation />
 		</>
 	);
 }

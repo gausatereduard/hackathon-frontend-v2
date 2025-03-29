@@ -1,6 +1,4 @@
-import { ChevronRight } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import { ArrowDownToLine, ArrowUpToLine, ChevronRight } from "lucide-react";
 
 interface TransactionProps {
   id: string;
@@ -8,32 +6,29 @@ interface TransactionProps {
   date: string;
   amount: string;
   isIncoming?: boolean;
-  iconBgColor: string;
-  iconPath: string;
   className?: string;
 }
 
 export const Transaction = ({
-  id,
   merchant,
   date,
   amount,
   isIncoming = false,
-  iconBgColor,
-  iconPath,
   className = "",
 }: TransactionProps) => {
-  // const numericAmount = parseFloat(amount.replace(/[^0-9.-]+/g, ""));
-
   return (
-    <Link href={`/e-receipt/${id}`} className={`py-3 flex items-center justify-between ${className}`}>
+    <article className={`py-3 flex items-center justify-between ${className}`}>
       <div className="flex items-center gap-3">
-        <div className={`w-10 h-10 rounded-md ${iconBgColor} flex items-center justify-center`}>
-          <Image src={iconPath} alt={merchant} width={20} height={20} className="rounded" />
+        <div className={`w-10 h-10 rounded-md ${isIncoming ? 'bg-emerald-100 text-emerald-700' : 'bg-red-100 text-red-700'} flex items-center justify-center`}>
+          {isIncoming ? <ArrowDownToLine size={20} /> : <ArrowUpToLine size={20} />}
         </div>
         <div>
           <p className="text-sm font-medium">{merchant}</p>
-          <p className="text-xs text-gray-500">{date}</p>
+          <p className="text-xs text-gray-500">{new Date(date).toLocaleDateString("ru-MD", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}</p>
         </div>
       </div>
       <div className="flex items-center gap-1">
@@ -42,6 +37,6 @@ export const Transaction = ({
         </p>
         <ChevronRight size={16} className="text-gray-400" />
       </div>
-    </Link>
+    </article>
   );
 }; 

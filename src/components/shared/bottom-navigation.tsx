@@ -10,7 +10,7 @@ export function BottomNavigation() {
     const isActive = (path: string) => pathname === path;
 
     return (
-        <nav className={"fixed bottom-0 left-0 w-full right-0 bg-white shadow-t-md px-4 border-t border-gray-200"}>
+        <nav className={"fixed bottom-0 left-0 w-full right-0 bg-white shadow-t-md px-4 border-t border-gray-200 z-50"}>
             <div className={"max-w-md mx-auto flex items-center justify-between"}>
                 <Link href={"/"} className={`h-full px-3 py-4 grow -mt-px text-sm flex flex-col items-center justify-center ${isActive("/") ? "text-indigo-700 border-t border-indigo-700" : ""}`}>
                     <HomeIcon size={16} />

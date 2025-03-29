@@ -1,6 +1,7 @@
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { CardSmall } from "@/components/shared/user-card";
+import Image from "next/image";
+import { CardsSmallList } from "@/components/shared/by-page/cards-page";
 
 export default async function Page() {
 	return (
@@ -19,9 +20,11 @@ export default async function Page() {
 					</section>
 
 					<section className={"flex gap-3 items-center justify-center"}>
-						<div className={"w-18 h-18 rounded-full bg-gray-200"}></div>
+						<div className={"w-18 h-18 rounded-full bg-gray-200 overflow-hidden"}>
+							<Image src="/3.jpeg" alt="Image" width={72} height={72} />
+						</div>
 						<div>
-							<p className={"font-semibold"}>Muhammad</p>
+							<p className={"font-semibold"}>Edward D Vandenberg</p>
 							<p className={"text-sm"}>+1-300-555-0161</p>
 						</div>
 					</section>
@@ -38,18 +41,7 @@ export default async function Page() {
 					</section>
 
 					<section className={"px-4 flex flex-col gap-2"}>
-						<CardSmall 
-							cardType="visa"
-							cardNumber="4242"
-							balance="MDL 14,235.34"
-						/>
-						
-						<CardSmall 
-							cardType="mastercard"
-							cardNumber="9124"
-							balance="MDL 4,125.99"
-							isSelected={true}
-						/>
+						<CardsSmallList />
 					</section>
 				</section>
 

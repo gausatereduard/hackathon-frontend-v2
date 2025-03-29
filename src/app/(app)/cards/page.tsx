@@ -1,8 +1,17 @@
 import Link from "next/link";
-import { Card } from "@/components/shared/user-card";
 import { BottomNavigation } from "@/components/shared/bottom-navigation";
+import { CardsList } from "@/components/shared/by-page/cards-page";
+import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import { getMe } from "@/server/actions/auth";
 
 export default async function Page() {
+	const queryClient = new QueryClient()
+
+	await queryClient.prefetchQuery({
+		queryKey: ['getMe'],
+		queryFn: getMe,
+	})
+
 	return (
 		<>
 			<main>
@@ -17,23 +26,9 @@ export default async function Page() {
 						</Link>
 					</header>
 
-					<section className={"space-y-3"}>
-					<Card
-							name="Abdullah Ghatashah"
-							cardNumber="4242 4242 4242 2345"
-							balance="$2,354"
-						/>
-						<Card
-							name="Abdullah Ghatashah"
-							cardNumber="4242 4242 4242 6432"
-							balance="$1,845"
-						/>
-						<Card
-							name="Abdullah Ghatashah"
-							cardNumber="4242 4242 4242 3245"
-							balance="$954"
-						/>
-					</section>
+					<HydrationBoundary state={dehydrate(queryClient)}>
+						<CardsList />
+					</HydrationBoundary>
 				</section>
 			</main>
 

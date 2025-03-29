@@ -21,10 +21,7 @@ export const Card = ({ name, cardNumber, balance, className }: CardProps) => {
       <div className={"relative z-10 flex flex-col justify-between h-full"}>
         <div className={"flex justify-between items-start"}>
           <p className={"text-sm font-medium"}>{name}</p>
-          <div className={"flex items-center gap-1"}>
-            <span className={"text-xs text-gray-300"}>••••</span>
-            <span className={"text-sm font-medium"}>{cardNumber.slice(-4)}</span>
-          </div>
+          <p className={"text-sm font-medium"}>{cardNumber}</p>
         </div>
 
         <div className={"flex justify-between items-end"}>
