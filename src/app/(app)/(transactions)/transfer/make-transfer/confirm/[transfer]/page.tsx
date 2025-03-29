@@ -1,4 +1,3 @@
-import { ConfirmByHandshake } from "@/components/shared/confirm-by-handshake";
 import { ChevronLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -47,7 +46,9 @@ export default async function Page() {
 						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
 							Confirm by Noseprint
 						</Link>
-						<ConfirmByHandshake />
+						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href="/transfer/make-transfer/confirm/uuid/handshake">
+							Confirm by Handshake
+						</Link>
 						<Link className={"w-full flex items-center justify-center bg-indigo-100 text-sm font-semibold text-indigo-700 py-3 px-6 leading-normal rounded-md"} href={"/transfer"}>
 							Cancel
 						</Link>
