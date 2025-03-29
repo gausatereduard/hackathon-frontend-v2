@@ -13,7 +13,7 @@ export default async function Page() {
 				</header>
 
 				<section>
-					<h2 className={"text-2xl"}>Transfer to</h2>
+					<h2 className={"text-2xl"}>Request from</h2>
 				</section>
 			</section>
 
@@ -40,7 +40,7 @@ export default async function Page() {
 						<p className={"text-xs"}>Frequent contacts</p>
 					</header>
 					<div className={"flex flex-col divide-y divide-gray-200"}>
-						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/transfer/make-transfer"}>
+						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/request/make-request"}>
 							<div className={"flex items-center gap-2"}>
 								<div className={"w-12 h-12 rounded-full bg-gray-200"}></div>
 								<div>
@@ -54,7 +54,7 @@ export default async function Page() {
 							</div>
 						</Link>
 
-						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/transfer/make-transfer"}>
+						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/request/make-request"}>
 							<div className={"flex items-center gap-2"}>
 								<div className={"w-12 h-12 rounded-full bg-gray-200"}></div>
 								<div>
@@ -68,7 +68,7 @@ export default async function Page() {
 							</div>
 						</Link>
 
-						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/transfer/make-transfer"}>
+						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/request/make-request"}>
 							<div className={"flex items-center gap-2"}>
 								<div className={"w-12 h-12 rounded-full bg-gray-200"}></div>
 								<div>
@@ -89,7 +89,7 @@ export default async function Page() {
 						<p className={"text-xs"}>All contacts</p>
 					</header>
 					<div className={"flex flex-col divide-y divide-gray-200"}>
-						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/transfer/make-transfer"}>
+						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/request/make-request"}>
 							<div className={"flex items-center gap-2"}>
 								<div className={"w-12 h-12 rounded-full bg-gray-200"}></div>
 								<div>
@@ -103,7 +103,7 @@ export default async function Page() {
 							</div>
 						</Link>
 
-						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/transfer/make-transfer"}>
+						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/request/make-request"}>
 							<div className={"flex items-center gap-2"}>
 								<div className={"w-12 h-12 rounded-full bg-gray-200"}></div>
 								<div>
@@ -117,7 +117,7 @@ export default async function Page() {
 							</div>
 						</Link>
 
-						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/transfer/make-transfer"}>
+						<Link className={"first:pt-0 last:pb-0 py-3 flex items-center justify-between"} href={"/request/make-request"}>
 							<div className={"flex items-center gap-2"}>
 								<div className={"w-12 h-12 rounded-full bg-gray-200"}></div>
 								<div>

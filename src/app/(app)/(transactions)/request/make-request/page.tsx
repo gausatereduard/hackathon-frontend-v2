@@ -1,6 +1,5 @@
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { CardSmall } from "@/components/shared/user-card";
 
 export default async function Page() {
 	return (
@@ -15,7 +14,7 @@ export default async function Page() {
 					</header>
 
 					<section className={"text-center"}>
-						<h2 className={"text-2xl"}>Transfer to</h2>
+						<h2 className={"text-2xl"}>Request from</h2>
 					</section>
 
 					<section className={"flex gap-3 items-center justify-center"}>
@@ -36,21 +35,6 @@ export default async function Page() {
 							/>
 						</div>
 					</section>
-
-					<section className={"px-4 flex flex-col gap-2"}>
-						<CardSmall 
-							cardType="visa"
-							cardNumber="4242"
-							balance="MDL 14,235.34"
-						/>
-						
-						<CardSmall 
-							cardType="mastercard"
-							cardNumber="9124"
-							balance="MDL 4,125.99"
-							isSelected={true}
-						/>
-					</section>
 				</section>
 
 				<section className={"px-4 pb-4"}>
@@ -58,9 +42,7 @@ export default async function Page() {
 						<Link className={"w-full flex items-center justify-center bg-indigo-100 text-sm font-semibold text-indigo-700 py-3 px-6 leading-normal rounded-md"} href={"/transfer"}>
 							Cancel
 						</Link>
-						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
-							Continue
-						</Link>
+						<button className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"}>Request</button>
 					</section>
 				</section>
 			</main>

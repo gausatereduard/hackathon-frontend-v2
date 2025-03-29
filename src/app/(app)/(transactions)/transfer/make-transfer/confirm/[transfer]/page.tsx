@@ -1,12 +1,11 @@
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
-import { CardSmall } from "@/components/shared/user-card";
 
 export default async function Page() {
 	return (
 		<>
 			<main className={"h-screen flex flex-col"}>
-				<section className={"grow pt-2 px-4 mb-10 space-y-6"}>
+				<section className={"grow pt-2 px-4 mb-10 space-y-14"}>
 					<header>
 						<Link className={"flex items-center gap-0.5 text-sm font-semibold"} href={"/"}>
 							<ChevronLeft size={20} />
@@ -27,39 +26,28 @@ export default async function Page() {
 					</section>
 
 					<section className={"text-center"}>
-						<p className={"text-sm"}>Enter Amount</p>
+						<p className={"text-sm"}>Amount</p>
 						<div className={"max-w-[200px] mx-auto flex items-center justify-center"}>
-							<input
-								type="text"
-								placeholder="MDL 00.00"
-								className={"w-full text-center text-3xl leading-normal focus:outline-none py-2 border-b-2 border-gray-200 focus:border-indigo-700"}
-							/>
+							<p className={"w-full text-center text-3xl leading-normal py-2 border-b-2 border-gray-200"}>
+								MDL 1000
+							</p>
 						</div>
-					</section>
-
-					<section className={"px-4 flex flex-col gap-2"}>
-						<CardSmall 
-							cardType="visa"
-							cardNumber="4242"
-							balance="MDL 14,235.34"
-						/>
-						
-						<CardSmall 
-							cardType="mastercard"
-							cardNumber="9124"
-							balance="MDL 4,125.99"
-							isSelected={true}
-						/>
 					</section>
 				</section>
 
 				<section className={"px-4 pb-4"}>
-					<section className={"flex gap-4"}>
-						<Link className={"w-full flex items-center justify-center bg-indigo-100 text-sm font-semibold text-indigo-700 py-3 px-6 leading-normal rounded-md"} href={"/transfer"}>
-							Cancel
+					<section className={"flex flex-col gap-2"}>
+						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
+							Boring confirm (SMS or Email)
 						</Link>
 						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
-							Continue
+							Confirm by Noseprint
+						</Link>
+						<Link className={"w-full flex items-center justify-center bg-indigo-700 text-sm font-semibold text-white py-3 px-6 leading-normal rounded-md"} href={"/transfer/make-transfer/confirm/uuid"}>
+							Confirm by Handshake
+						</Link>
+						<Link className={"w-full flex items-center justify-center bg-indigo-100 text-sm font-semibold text-indigo-700 py-3 px-6 leading-normal rounded-md"} href={"/transfer"}>
+							Cancel
 						</Link>
 					</section>
 				</section>
