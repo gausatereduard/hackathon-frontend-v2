@@ -18,7 +18,7 @@ export default function Page() {
                         <div className="flex justify-center mb-4">
                             <CheckCircle2 className="text-green-500 w-16 h-16" />
                         </div>
-                        <h2 className={"text-2xl font-bold"}>Transfer completed!</h2>
+                        <h2 className={"text-2xl font-bold"}>Handshake confirmed!</h2>
                         <p className="text-gray-500 mt-2">Your funds have been successfully transferred</p>
                     </section>
 
