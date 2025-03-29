@@ -118,7 +118,7 @@ export function WaitingForConfirmation() {
         };
 
         const interval = setInterval(checkConfirmation, 1000);
-        setInterval(() => {
+        setTimeout(() => {
             const audio = new Audio('/notification.mp3');
             audio.play().catch(err => console.error('Error playing sound:', err));
             router.push(`/transfer/make-transfer/confirm/${transfer}/confirmed`);

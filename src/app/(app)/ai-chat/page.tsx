@@ -21,6 +21,19 @@ type Analysis = {
     health_analysis?: string;
     automobile_petrol_roads_analysis?: string;
     other_expenses_analysis?: string;
+    home_garden_analysis?: string;
+    cash_out_analysis?: string;
+    income_analysis?: string;
+  };
+  transaction_stats?: {
+    count: number;
+    date_range: {
+      from: string;
+      to: string;
+    };
+    total_expenses: number;
+    total_income: number;
+    categories: string[];
   };
 };
 
@@ -53,7 +66,15 @@ export default function Page() {
           summary: result.data.summary,
           recommendations: result.data.recommendations,
           key_insights: result.data.key_insights,
-          details: result.data.details
+          details: result.data.details,
+          transaction_stats: result.data.data ? {
+            count: result.data.data.transaction_count,
+            date_range: result.data.data.aggregated?.date_range || { from: '', to: '' },
+            total_expenses: result.data.data.aggregated?.total_amount || 0,
+            total_income: result.data.transactions?.filter((t: { type: string }) => t.type === 'income')
+              .reduce((sum: number, t: { amount: number }) => sum + t.amount, 0) || 0,
+            categories: result.data.data.aggregated?.categories || []
+          } : undefined
         });
         
         // Add assistant response
@@ -146,6 +167,39 @@ export default function Page() {
                   <p>{analysis.summary}</p>
                 </div>
                 
+                {/* Transaction Statistics */}
+                {analysis.transaction_stats && (
+                  <div className="mb-4">
+                    <h3 className="text-blue-400 font-medium mb-2">Transaction Statistics</h3>
+                    <div className="grid grid-cols-2 gap-2 text-sm mb-2">
+                      <div className="bg-slate-700 p-2 rounded">
+                        <p className="text-blue-300">Total Transactions</p>
+                        <p className="text-xl font-bold">{analysis.transaction_stats.count}</p>
+                      </div>
+                      <div className="bg-slate-700 p-2 rounded">
+                        <p className="text-blue-300">Date Range</p>
+                        <p className="text-sm">{new Date(analysis.transaction_stats.date_range.from).toLocaleDateString()} - {new Date(analysis.transaction_stats.date_range.to).toLocaleDateString()}</p>
+                      </div>
+                      <div className="bg-slate-700 p-2 rounded">
+                        <p className="text-blue-300">Total Expenses</p>
+                        <p className="text-xl font-bold text-red-400">{analysis.transaction_stats.total_expenses.toFixed(2)}</p>
+                      </div>
+                      <div className="bg-slate-700 p-2 rounded">
+                        <p className="text-blue-300">Total Income</p>
+                        <p className="text-xl font-bold text-green-400">{analysis.transaction_stats.total_income.toFixed(2)}</p>
+                      </div>
+                    </div>
+                    <div className="bg-slate-700 p-2 rounded">
+                      <p className="text-blue-300">Categories</p>
+                      <div className="flex flex-wrap gap-1 mt-1">
+                        {analysis.transaction_stats.categories.map((category, idx) => (
+                          <span key={idx} className="bg-slate-600 text-xs px-2 py-1 rounded-full">{category || "Uncategorized"}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
                 {/* Key Insights */}
                 <div className="mb-4">
                   <h3 className="text-blue-400 font-medium mb-2">Key Insights</h3>
@@ -172,33 +226,51 @@ export default function Page() {
                     <h3 className="text-blue-400 font-medium mb-2">Details</h3>
                     <div className="space-y-2 text-sm">
                       {analysis.details.foods_drinks_analysis && (
-                        <div>
+                        <div className="bg-slate-700 p-3 rounded">
                           <h4 className="text-blue-300">Food & Drinks</h4>
                           <p>{analysis.details.foods_drinks_analysis}</p>
                         </div>
                       )}
                       {analysis.details.restaurants_bars_analysis && (
-                        <div>
+                        <div className="bg-slate-700 p-3 rounded">
                           <h4 className="text-blue-300">Restaurants & Bars</h4>
                           <p>{analysis.details.restaurants_bars_analysis}</p>
                         </div>
                       )}
                       {analysis.details.health_analysis && (
-                        <div>
+                        <div className="bg-slate-700 p-3 rounded">
                           <h4 className="text-blue-300">Health</h4>
                           <p>{analysis.details.health_analysis}</p>
                         </div>
                       )}
                       {analysis.details.automobile_petrol_roads_analysis && (
-                        <div>
+                        <div className="bg-slate-700 p-3 rounded">
                           <h4 className="text-blue-300">Automobile/Fuel</h4>
                           <p>{analysis.details.automobile_petrol_roads_analysis}</p>
                         </div>
                       )}
                       {analysis.details.other_expenses_analysis && (
-                        <div>
+                        <div className="bg-slate-700 p-3 rounded">
                           <h4 className="text-blue-300">Other Expenses</h4>
                           <p>{analysis.details.other_expenses_analysis}</p>
+                        </div>
+                      )}
+                      {analysis.details.home_garden_analysis && (
+                        <div className="bg-slate-700 p-3 rounded">
+                          <h4 className="text-blue-300">Home & Garden</h4>
+                          <p>{analysis.details.home_garden_analysis}</p>
+                        </div>
+                      )}
+                      {analysis.details.cash_out_analysis && (
+                        <div className="bg-slate-700 p-3 rounded">
+                          <h4 className="text-blue-300">Cash Withdrawals</h4>
+                          <p>{analysis.details.cash_out_analysis}</p>
+                        </div>
+                      )}
+                      {analysis.details.income_analysis && (
+                        <div className="bg-slate-700 p-3 rounded">
+                          <h4 className="text-blue-300">Income</h4>
+                          <p>{analysis.details.income_analysis}</p>
                         </div>
                       )}
                     </div>
